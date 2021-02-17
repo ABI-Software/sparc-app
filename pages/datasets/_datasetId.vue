@@ -308,24 +308,19 @@ const getImagesData = async (datasetId, datasetDetails, $axios) => {
       plotData = [plotData]
     }
 
-    let flatmapData = []
+    let flatmapData = [{}]
     discover
       .metaData(datasetId, version).then(response => {
         response.data.keywords.forEach(key => {
-          let taxo = undefined;
-          let uberonid = undefined;
           for (let term in Uberons.species) {
             if (term === key.toLowerCase()){
-              taxo = Uberons.species[term];
+              flatmapData[0].taxo = Uberons.species[term]
             }
           }
           for (let term in Uberons.anatomy) {
             if (term === key.toLowerCase()) {
-              uberonid = Uberons.anatomy[term];
+              flatmapData[0].uberonid = Uberons.anatomy[term]
             }
-          }
-          if (taxo) {
-            flatmapData[0] = {taxo: taxo, uberonid: uberonid};
           }
         })
       })
