@@ -17,6 +17,7 @@
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
+    "@abi-software/flatmapvuer": "^0.1.30",
     "@abi-software/mapintegratedvuer": "^0.1.26",
     "@abi-software/plotvuer": "^0.2.31",
     "@abi-software/scaffoldvuer": "^0.1.43",

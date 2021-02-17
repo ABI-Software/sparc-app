@@ -11,6 +11,22 @@
     orbit-camera-controller "^4.0.0"
     turntable-camera-controller "^3.0.0"
 
+"@abi-software/flatmap-viewer@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@abi-software/flatmap-viewer/-/flatmap-viewer-1.0.2.tgz#4287844501d546fdd70ab640d6584468302c792b"
+  integrity sha512-HDgFzf4ULYBMmaF6jzsCzXIxa6cIgphAw2jarzQ7tDub8SHTXWGfoX8g+IcJIetzK2Aezix/bniNeup364mkAw==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@comunica/actor-init-sparql" "^1.9.1"
+    "@comunica/core" "^1.9.0"
+    "@comunica/utils-datasource" "^1.9.0"
+    "@turf/area" "^6.0.1"
+    "@turf/bbox" "^6.0.1"
+    "@turf/helpers" "^6.1.4"
+    mapbox-gl "^1.12.0"
+    minisearch "^2.2.1"
+    n3 "^1.3.5"
+
 "@abi-software/flatmapvuer@^0.1.29":
   version "0.1.29"
   resolved "https://registry.yarnpkg.com/@abi-software/flatmapvuer/-/flatmapvuer-0.1.29.tgz#8c0b2858fc2c01b826d6ef3218239d1306621d98"
@@ -18,6 +34,22 @@
   dependencies:
     "@abi-software/maptooltip" "^0.1.13"
     "@dbrnz/flatmap-viewer" "^0.9.34"
+    core-js "^3.3.2"
+    css-element-queries "^1.2.2"
+    current-script-polyfill "^1.0.0"
+    element-ui "^2.13.0"
+    file-loader "^5.0.2"
+    lodash "^4.17.20"
+    vue "^2.6.10"
+
+"@abi-software/flatmapvuer@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.yarnpkg.com/@abi-software/flatmapvuer/-/flatmapvuer-0.1.30.tgz#cd0236af2e2935774a7cab72e2772e689d82da2d"
+  integrity sha512-GWrAeZhumEn/0JmSL3rpuBlbMKpY41p3g5QsoNVm2FLIKM/527teQzVzL9RdbpfGYc6gGFBMxpHBgyTsPBCfuw==
+  dependencies:
+    "@abi-software/flatmap-viewer" "^1.0.2"
+    "@abi-software/maptooltip" "^0.1.13"
+    "@abi-software/svg-sprite" "^0.1.11"
     core-js "^3.3.2"
     css-element-queries "^1.2.2"
     current-script-polyfill "^1.0.0"
@@ -106,6 +138,15 @@
     vue "^2.6.10"
     vue-drag-resize "^1.3.2"
     zincjs "^0.35.1"
+
+"@abi-software/svg-sprite@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@abi-software/svg-sprite/-/svg-sprite-0.1.11.tgz#3526b6d03985548a28b45356fda0aeba95c93176"
+  integrity sha512-STUfkxm0C/bUM7zk/XCxp+zAfTryLT4faj8KD22Xe7RY6bm9ZtSjXKkKMQ8EekpyBHcybidEbfUBdPgXgJlPoQ==
+  dependencies:
+    core-js "^3.6.5"
+    svg-inline-loader "^0.8.2"
+    vue "^2.6.11"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
@@ -5180,6 +5221,11 @@ core-js@^3.3.2:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
+
+core-js@^3.6.5:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.3.tgz#c21906e1f14f3689f93abcc6e26883550dd92dd0"
+  integrity sha512-KPYXeVZYemC2TkNEkX/01I+7yd+nX3KddKwZ1Ww7SKWdI2wQprSgLmrTddT8nw92AjEklTsPBoSdQBhbI1bQ6Q==
 
 core-js@^3.7.0:
   version "3.7.0"
@@ -13608,6 +13654,11 @@ signum@^1.0.0:
   resolved "https://registry.yarnpkg.com/signum/-/signum-1.0.0.tgz#74a7d2bf2a20b40eba16a92b152124f1d559fa77"
   integrity sha1-dKfSvyogtA66FqkrFSEk8dVZ+nc=
 
+simple-html-tokenizer@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
+  integrity sha1-BcLuxXn//+FFoDCsJs/qYbmA+r4=
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
@@ -14295,6 +14346,15 @@ svg-arc-to-cubic-bezier@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/svg-arc-to-cubic-bezier/-/svg-arc-to-cubic-bezier-3.2.0.tgz#390c450035ae1c4a0104d90650304c3bc814abe6"
   integrity sha512-djbJ/vZKZO+gPoSDThGNpKDO+o+bAeA4XQKovvkNCqnIS2t+S4qnLAGQhyyrulhCFRl1WWzAp0wUDV8PpTVU3g==
+
+svg-inline-loader@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/svg-inline-loader/-/svg-inline-loader-0.8.2.tgz#9872414f9e4141601e04eb80cda748c9a50dae71"
+  integrity sha512-kbrcEh5n5JkypaSC152eGfGcnT4lkR0eSfvefaUJkLqgGjRQJyKDvvEE/CCv5aTSdfXuc+N98w16iAojhShI3g==
+  dependencies:
+    loader-utils "^1.1.0"
+    object-assign "^4.0.1"
+    simple-html-tokenizer "^0.1.1"
 
 svg-path-bounds@^1.0.1:
   version "1.0.1"
@@ -15374,7 +15434,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.10, vue@^2.6.12:
+vue@^2.6.10, vue@^2.6.11, vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

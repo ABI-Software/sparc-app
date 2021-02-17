@@ -80,6 +80,12 @@ export default {
         return []
       },
     },
+    datasetFlatmaps: {
+      type: Array,
+      default: () => {
+        return []
+      },
+    },
     datasetScaffolds: {
       type: Array,
       default: () => {
@@ -127,7 +133,8 @@ export default {
       defaultImg: require('~/assets/logo-sparc-wave-primary.svg'),
       defaultScaffoldImg: require('~/assets/scaffold-light.png'),
       defaultPlotImg: require('~/assets/data-icon.png'),
-      defaultVideoImg: require('~/assets/video-default.png')
+      defaultVideoImg: require('~/assets/video-default.png'),
+      defaultFlatmapImg: require('~/assets/flatmap-thumbnail.png')
     }
   },
   computed: {
@@ -139,7 +146,8 @@ export default {
     },
     imageCount() {
       return this.datasetImages.length + this.datasetScaffolds.length +
-        this.datasetPlots.length + this.datasetVideos.length;
+        this.datasetPlots.length + this.datasetVideos.length +
+        this.datasetFlatmaps.length;
     },
     numberOfImagesVisible() {
       const imagesVisibleCount =
@@ -206,7 +214,6 @@ export default {
       }
     },
     getThumbnails() {
-      this.thumbnails.clear
       this.slideAxis = undefined
       this.thumbnails = Array.from(this.datasetImages, (dataset_image) => {
         return {
@@ -315,6 +322,14 @@ export default {
             console.log(error.message)
           })
       })
+      if (this.datasetFlatmaps.length > 0) {
+        this.thumbnails.push({
+          img: this.defaultFlatmapImg,
+          id: this.datasetId,
+          taxo: this.datasetFlatmaps[0].taxo,
+          uberonid: this.datasetFlatmaps[0].uberonid,
+        })
+      }
       for (let i in this.datasetPlots) {
         this.thumbnails.push({
           id: this.datasetId,
@@ -341,7 +356,8 @@ export default {
       const shareLinkIndex = imageInfoKeys.indexOf('share_link')
       const metadataFileIndex = imageInfoKeys.indexOf('metadata_file')
       const plotFileIndex = imageInfoKeys.indexOf('plot_file') 
-      const videoFileIndex = imageInfoKeys.indexOf('file_path') 
+      const videoFileIndex = imageInfoKeys.indexOf('file_path')
+      const flatmapIndex = imageInfoKeys.indexOf('uberonid') 
       let imageType = 'unknown'
       if (shareLinkIndex !== -1) {
         imageType = 'biolucida'
@@ -351,6 +367,8 @@ export default {
         imageType = 'plot'
       } else if (videoFileIndex !== -1) {
         imageType = 'video'
+      } else if (flatmapIndex !== -1) {
+        imageType = 'flatmap'
       }
       return imageType
     },
@@ -394,6 +412,14 @@ export default {
             dataset_id: this.datasetId,
           }
           break
+        case 'flatmap':
+          query = {
+            dataset_version: this.datasetVersion,
+            dataset_id: this.datasetId,
+            taxo: imageInfo.taxo,
+            uberonid: imageInfo.uberonid,
+          }
+          break
         case 'scaffold':
           query = {
             scaffold: imageInfo.metadata_file,
@@ -425,6 +451,9 @@ export default {
       switch (imageType) {
         case 'biolucida':
           name = 'datasets-imageviewer-id'
+          break
+        case 'flatmap':
+          name = 'datasets-flatmapviewer-id'
           break
         case 'scaffold':
           name = 'datasets-scaffoldviewer-id'

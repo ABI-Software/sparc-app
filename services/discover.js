@@ -20,6 +20,21 @@ const browse = async (id, version, path = undefined) => {
   return apiClient.get(`/${id}/versions/${version}/files/browse`, config)
 }
 
+const metaData = async (id, version, path = undefined) => {
+  let config = {}
+  if (path) {
+    config = {
+      params: {
+        path: path,
+        limit: 253,
+      },
+    }
+  }
+
+  return apiClient.get(`/${id}/versions/${version}/metadata`, config)
+}
+
 export default {
   browse,
+  metaData
 }
