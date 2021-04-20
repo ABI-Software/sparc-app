@@ -17,9 +17,10 @@
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
+    "@abi-software/map-side-bar": "^1.0.7",
     "@abi-software/mapintegratedvuer": "^0.1.30",
-    "@abi-software/scaffoldvuer": "^0.1.45",
     "@abi-software/plotvuer": "^0.2.42",
+    "@abi-software/scaffoldvuer": "^0.1.45",
     "@miyaoka/nuxt-twitter-widgets-module": "^0.0.1",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/google-analytics": "^2.2.3",
@@ -27,7 +28,7 @@
     "babel-eslint": "^10.0.3",
     "contentful": "^7.10.0",
     "cookie-universal-nuxt": "^2.1.1",
-    "core-js": "^2.5.7",
+    "core-js": "3",
     "date-fns": "^2.8.1",
     "element-ui": "^2.4.11",
     "eslint": "^6.8.0",

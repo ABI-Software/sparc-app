@@ -34,9 +34,12 @@
         @set-active-tab="activeTab = $event"
       >
         <client-only placeholder="Loading scaffold ...">
+
           <div class="scaffoldvuer-container">
-            <ScaffoldVuer :displayMarkers="displayMarkers" :url="scaffoldUrl" :traditional="traditional" :backgroundToggle="backgroundToggle"/>
+            <ScaffoldVuer  :displayMarkers="displayMarkers" :url="scaffoldUrl" :traditional="traditional" :backgroundToggle="backgroundToggle"/>
+            <SideBar class="sidebar" :visible="true" :tabs="contextCard" :activeId="0" :api-location="'https://api.sparc.science/'"/> 
           </div>
+        
         </client-only>
       </detail-tabs>
     </div>
@@ -46,6 +49,7 @@
 <script>
 // :scaffold-selected="scaffoldSelected"
 import DetailTabs from '@/components/DetailTabs/DetailTabs.vue'
+import scaffoldContext from './scaffold-context'
 
 export default {
   name: 'ScaffoldViewerPage',
@@ -54,8 +58,11 @@ export default {
     DetailTabs,
     ScaffoldVuer: process.client
       ? () => import('@abi-software/scaffoldvuer').then(m => m.ScaffoldVuer)
-      : null
-  },
+      : null,
+    SideBar: process.client
+      ? () => import('@abi-software/map-side-bar').then(m => m.SideBar)
+      : null,
+  },  
 
   data: () => {
     return {
@@ -116,6 +123,14 @@ export default {
     scaffoldUrl: function() {
       return `${process.env.portal_api}/s3-resource/${this.$route.query.scaffold}`
     },
+
+    contextCard: function(){
+      if (scaffoldContext[this.datasetId] !== undefined){
+        return [scaffoldContext[this.datasetId]]
+      } else {
+        return []
+      }
+    }
   },
 }
 </script>
@@ -169,13 +184,25 @@ h1 {
 }
 </style>
 <style lang="scss">
-  .scaffoldvuer-container {
-    margin-top: 1.5rem;
-    height: 90vh;
-    width: calc(100% - 48px);
-    left: 24px;
-    overflow: hidden;
-    position:relative;
-    @import '~@abi-software/scaffoldvuer/dist/scaffoldvuer'
-  }
+.scaffoldvuer-container {
+  margin-top: 1.5rem;
+  height: 90vh;
+  width: calc(100% - 48px);
+  left: 24px;
+  overflow: hidden;
+  position:relative;
+  @import '~@abi-software/scaffoldvuer/dist/scaffoldvuer'
+}
+</style>
+<style lang="scss">
+.sidebar {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top: 0;
+  right: 0;
+  overflow:hidden;
+  pointer-events: auto;
+  @import '~@abi-software/map-side-bar/dist/map-side-bar'
+}
 </style>
